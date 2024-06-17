@@ -1,0 +1,33 @@
+[gd_scene load_steps=10 format=3 uid="uid://bxwct4f5sembx"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_qesw2"]
+[ext_resource type="PackedScene" uid="uid://1taft6lj33of" path="res://scenes/player.tscn" id="2_dahc4"]
+[ext_resource type="PackedScene" uid="uid://cugbq1isxt180" path="res://scenes/tile_map.tscn" id="3_net13"]
+[ext_resource type="PackedScene" uid="uid://bvcpo85ygak0" path="res://scenes/start.tscn" id="4_p7bop"]
+[ext_resource type="PackedScene" uid="uid://c7x3jd0p53mra" path="res://scenes/parallax_background.tscn" id="5_sba43"]
+[ext_resource type="Texture2D" uid="uid://dokk1t288uebh" path="res://assets/martian_mike_assets/textures/bg/Brown.png" id="6_yqj6w"]
+[ext_resource type="PackedScene" uid="uid://b8qsidmc80mtf" path="res://scenes/exit.tscn" id="7_sb8xr"]
+[ext_resource type="PackedScene" uid="uid://bltpq0vonsqcs" path="res://scenes/death_plane.tscn" id="8_6tc3f"]
+[ext_resource type="PackedScene" uid="uid://cya6h4bquqxcy" path="res://scenes/ui_layer.tscn" id="9_o0ieh"]
+
+[node name="level_3" type="Node2D"]
+script = ExtResource("1_qesw2")
+is_final_level = true
+
+[node name="player" parent="." instance=ExtResource("2_dahc4")]
+
+[node name="TileMap" parent="." instance=ExtResource("3_net13")]
+position = Vector2(13, 196)
+
+[node name="start" parent="." instance=ExtResource("4_p7bop")]
+position = Vector2(465, 199)
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("5_sba43")]
+bg_texture = ExtResource("6_yqj6w")
+
+[node name="exit" parent="." instance=ExtResource("7_sb8xr")]
+position = Vector2(31, 164)
+
+[node name="death_plane" parent="." instance=ExtResource("8_6tc3f")]
+
+[node name="ui_layer" parent="." instance=ExtResource("9_o0ieh")]

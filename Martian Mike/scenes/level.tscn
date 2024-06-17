@@ -1,0 +1,57 @@
+[gd_scene load_steps=13 format=3 uid="uid://7oomt4av24ws"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_hgdjk"]
+[ext_resource type="PackedScene" uid="uid://bvb87imc5x3n6" path="res://scenes/level_2.tscn" id="2_hqp6q"]
+[ext_resource type="PackedScene" uid="uid://c7x3jd0p53mra" path="res://scenes/parallax_background.tscn" id="2_twy20"]
+[ext_resource type="PackedScene" uid="uid://1taft6lj33of" path="res://scenes/player.tscn" id="3_5oy1v"]
+[ext_resource type="PackedScene" uid="uid://cya6h4bquqxcy" path="res://scenes/ui_layer.tscn" id="4_4jy0v"]
+[ext_resource type="PackedScene" uid="uid://bltpq0vonsqcs" path="res://scenes/death_plane.tscn" id="4_8htng"]
+[ext_resource type="PackedScene" uid="uid://bvcpo85ygak0" path="res://scenes/start.tscn" id="4_b6du7"]
+[ext_resource type="PackedScene" uid="uid://b7ui5rmby6ih1" path="res://scenes/saw_trap.tscn" id="4_p2fm1"]
+[ext_resource type="PackedScene" uid="uid://u8wmvbeio331" path="res://scenes/jump_pad.tscn" id="4_s1od0"]
+[ext_resource type="PackedScene" uid="uid://3if7tv3jyp8m" path="res://scenes/spike_ball.tscn" id="5_ohmiq"]
+[ext_resource type="PackedScene" uid="uid://cugbq1isxt180" path="res://scenes/tile_map.tscn" id="7_hwpyx"]
+[ext_resource type="PackedScene" uid="uid://b8qsidmc80mtf" path="res://scenes/exit.tscn" id="10_tdrpr"]
+
+[node name="level" type="Node2D"]
+script = ExtResource("1_hgdjk")
+next_level = ExtResource("2_hqp6q")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_twy20")]
+
+[node name="ui_layer" parent="." instance=ExtResource("4_4jy0v")]
+
+[node name="death_plane" parent="." instance=ExtResource("4_8htng")]
+
+[node name="traps" type="Node2D" parent="."]
+
+[node name="saw_trap" parent="traps" instance=ExtResource("4_p2fm1")]
+position = Vector2(152, 80)
+
+[node name="spike_ball" parent="traps" instance=ExtResource("5_ohmiq")]
+position = Vector2(367, 74)
+
+[node name="objects" type="Node2D" parent="."]
+
+[node name="jump_pad" parent="objects" instance=ExtResource("4_s1od0")]
+position = Vector2(307, 123)
+
+[node name="jump_pad2" parent="objects" instance=ExtResource("4_s1od0")]
+position = Vector2(399, 58)
+
+[node name="jump_pad3" parent="objects" instance=ExtResource("4_s1od0")]
+position = Vector2(243, 10)
+
+[node name="TileMap" parent="." instance=ExtResource("7_hwpyx")]
+position = Vector2(12, 136)
+layer_0/tile_data = PackedInt32Array(1, 458752, 0, 65537, 458752, 1, 131073, 458752, 2, 2, 458752, 0, 65538, 458752, 1, 131074, 458752, 2, 3, 458752, 0, 65539, 458752, 1, 131075, 458752, 2, 4, 458752, 0, 65540, 458752, 1, 131076, 458752, 2, 5, 458752, 0, 65541, 458752, 1, 131077, 458752, 2, 6, 458752, 0, 65542, 458752, 1, 131078, 458752, 2, 7, 458752, 0, 65543, 458752, 1, 131079, 458752, 2, 8, 458752, 0, 65544, 458752, 1, 131080, 458752, 2, 9, 458752, 0, 65545, 458752, 1, 131081, 458752, 2, 10, 458752, 0, 65546, 458752, 1, 131082, 458752, 2, 11, 458752, 0, 65547, 458752, 1, 131083, 458752, 2, 12, 458752, 0, 65548, 458752, 1, 131084, 458752, 2, 13, 458752, 0, 65549, 458752, 1, 131085, 458752, 2, 14, 458752, 0, 65550, 458752, 1, 131086, 458752, 2, 15, 458752, 0, 65551, 458752, 1, 131087, 458752, 2, 16, 458752, 0, 65552, 458752, 1, 131088, 458752, 2, 17, 458752, 0, 65553, 458752, 1, 131089, 458752, 2, 18, 458752, 0, 65554, 458752, 1, 131090, 458752, 2, 19, 458752, 0, 65555, 458752, 1, 131091, 458752, 2, 20, 458752, 0, 65556, 458752, 1, 131092, 458752, 2, 21, 458752, 0, 65557, 458752, 1, 131093, 458752, 2, 22, 458752, 0, 65558, 458752, 1, 131094, 458752, 2, 23, 458752, 0, 65559, 458752, 1, 131095, 458752, 2, 24, 458752, 0, 65560, 458752, 1, 131096, 458752, 2, 25, 458752, 0, 65561, 458752, 1, 131097, 458752, 2, 26, 458752, 0, 65562, 458752, 1, 131098, 458752, 2, 27, 458752, 0, 65563, 458752, 1, 131099, 458752, 2, 28, 458752, 0, 65564, 458752, 1, 131100, 458752, 2, 0, 458752, 0, 65536, 458752, 1, 131072, 458752, 2, -262122, 1114112, 1, -262121, 1179648, 1, -262120, 1179648, 1, -262119, 1179648, 1, 65535, 524288, 1, 131071, 524288, 1, 196607, 524288, 1, 65534, 458752, 1, 131070, 458752, 1, 196606, 458752, 2, 65533, 458752, 1, 131069, 458752, 1, 196605, 458752, 1, -65538, 458752, 1, -2, 458752, 1, -65539, 458752, 1, -3, 458752, 1, -196611, 458752, 1, -131075, 458752, 1, -196610, 458752, 1, -131074, 458752, 1, -262147, 458752, 1, -327683, 458752, 0, -327682, 524288, 0, -262146, 458752, 1, -262145, 524288, 0, -196609, 524288, 1, -131073, 524288, 1, -65537, 524288, 1, -1, 524288, 1)
+
+[node name="start" parent="." instance=ExtResource("4_b6du7")]
+position = Vector2(47, 139)
+
+[node name="exit" parent="." instance=ExtResource("10_tdrpr")]
+position = Vector2(247, 104)
+
+[node name="player" parent="." instance=ExtResource("3_5oy1v")]
+position = Vector2(203, 131)
+collision_mask = 6

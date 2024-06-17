@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://br2o6gcavpeu4"]
+
+[ext_resource type="Script" path="res://scripts/audio_player.gd" id="1_t863s"]
+[ext_resource type="AudioStream" uid="uid://vimf0y777k4l" path="res://assets/martian_mike_assets/audio/Music.WAV" id="1_w8ju0"]
+
+[node name="audio_player" type="Node"]
+script = ExtResource("1_t863s")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_w8ju0")
+volume_db = -2.0
+autoplay = true

@@ -1,0 +1,34 @@
+[gd_scene load_steps=11 format=3 uid="uid://bvb87imc5x3n6"]
+
+[ext_resource type="PackedScene" uid="uid://1taft6lj33of" path="res://scenes/player.tscn" id="1_ecxip"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_nkdpj"]
+[ext_resource type="PackedScene" uid="uid://bxwct4f5sembx" path="res://scenes/level_3.tscn" id="2_5w58w"]
+[ext_resource type="PackedScene" uid="uid://cugbq1isxt180" path="res://scenes/tile_map.tscn" id="3_s58tn"]
+[ext_resource type="PackedScene" uid="uid://bvcpo85ygak0" path="res://scenes/start.tscn" id="4_8j1h8"]
+[ext_resource type="PackedScene" uid="uid://c7x3jd0p53mra" path="res://scenes/parallax_background.tscn" id="5_h252u"]
+[ext_resource type="Texture2D" uid="uid://cgnkw1nmdbr7g" path="res://assets/martian_mike_assets/textures/bg/Yellow.png" id="6_8f03a"]
+[ext_resource type="PackedScene" uid="uid://b8qsidmc80mtf" path="res://scenes/exit.tscn" id="7_nembi"]
+[ext_resource type="PackedScene" uid="uid://bltpq0vonsqcs" path="res://scenes/death_plane.tscn" id="8_8x6tu"]
+[ext_resource type="PackedScene" uid="uid://cya6h4bquqxcy" path="res://scenes/ui_layer.tscn" id="10_1c8am"]
+
+[node name="level_2" type="Node2D"]
+script = ExtResource("1_nkdpj")
+next_level = ExtResource("2_5w58w")
+
+[node name="player" parent="." instance=ExtResource("1_ecxip")]
+
+[node name="TileMap" parent="." instance=ExtResource("3_s58tn")]
+position = Vector2(-1, 136)
+
+[node name="start" parent="." instance=ExtResource("4_8j1h8")]
+position = Vector2(22, 139)
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("5_h252u")]
+bg_texture = ExtResource("6_8f03a")
+
+[node name="exit" parent="." instance=ExtResource("7_nembi")]
+position = Vector2(461, 104)
+
+[node name="death_plane" parent="." instance=ExtResource("8_8x6tu")]
+
+[node name="ui_layer" parent="." instance=ExtResource("10_1c8am")]

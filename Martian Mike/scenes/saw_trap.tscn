@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7ui5rmby6ih1"]
+
+[ext_resource type="Texture2D" uid="uid://cp0upqb7au8y3" path="res://assets/martian_mike_assets/textures/other/Saw.png" id="1_mf7cn"]
+[ext_resource type="Script" path="res://scripts/trap.gd" id="1_trq5a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y17t6"]
+radius = 18.0278
+
+[sub_resource type="Animation" id="Animation_quhj7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_yhflg"]
+resource_name = "spin"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 3, 5, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uu58j"]
+_data = {
+"RESET": SubResource("Animation_quhj7"),
+"spin": SubResource("Animation_yhflg")
+}
+
+[node name="saw_trap" type="Node2D" groups=["traps"]]
+script = ExtResource("1_trq5a")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_y17t6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("1_mf7cn")
+hframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_uu58j")
+}
+autoplay = "spin"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
